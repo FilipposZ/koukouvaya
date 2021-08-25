@@ -6,7 +6,8 @@ import Navbar from "./Navbar";
 
 const useStyles = makeStyles(theme => ({
   background: {
-    backgroundColor: theme.palette.primary.light
+    backgroundColor: theme.palette.primary.light,
+    overflowY: 'hidden'
   },
   root: {
     marginTop: '15vh',

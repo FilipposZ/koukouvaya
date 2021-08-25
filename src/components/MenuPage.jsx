@@ -10,6 +10,7 @@ import menuItems from '../menu-items';
 const useStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.primary.light,
+    overflowY: 'hidden'
   },
   footer: {
     paddingTop: theme.spacing(10),
