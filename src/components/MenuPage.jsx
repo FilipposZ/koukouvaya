@@ -33,7 +33,7 @@ const year = new Date().getFullYear(); // used for the copyright
  * @component
  */
 
-export default function Menu() {
+export default function MenuPage() {
   const cls = useStyles();
   const sectionRefs = useRef([]);
   sectionRefs.current = [];
@@ -102,7 +102,7 @@ export default function Menu() {
 
   return(
     <Box className={cls.root}>
-      <Navbar title='ΚΟΥΚΟΥΒΑΓΙΑ' subTitle='The Family Cafe'/>
+      <Navbar />
       <MenuNavbar sectionTitles={Object.keys(menuItems)} 
         sectionRefs={sectionRefs}
         focusedSectionIndex={focusedSectionIndex}

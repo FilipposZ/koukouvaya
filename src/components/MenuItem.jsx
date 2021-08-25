@@ -7,7 +7,7 @@ export default function MenuItem({ name, price }) {
         <Typography variant='body1'>{ name.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/ς/g, 'Σ') }</Typography>
       </Grid>
       <Grid item xs={2}>
-        <Typography variant='body2' style={{ fontSize: 22, fontWeight: 600 }}>{ price } </Typography>
+        <Typography variant='body2' style={{ fontSize: 22, fontWeight: 600, lineHeight: 1 }}>{ price } </Typography>
       </Grid>
     </Grid>
   );

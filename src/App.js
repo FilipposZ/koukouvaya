@@ -1,7 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, unstable_createMuiStrictModeTheme as createTheme } from '@material-ui/core/styles';
 
-import Menu from './components/Menu';
+import MenuPage from './components/MenuPage';
+import PartyPage from './components/PartyPage';
 
 const theme = createTheme({
   palette: {
@@ -10,7 +11,6 @@ const theme = createTheme({
     },
     secondary: {
       main: '#e18437',
-      // light: '#fce9f4'
     },
     tertiary: {
       dark: '#767d6e',
@@ -35,19 +35,20 @@ const theme = createTheme({
     },
     subtitle2: {
       fontSize: 20,
-      fontFamily: 'Roboto, sans-serif',
+      fontFamily: 'Salonikia, sans-serif',
       fontWeight: 400,
-      color: '#858999'
     },
     h2: {
-      fontSize: 26,
-      fontFamily: 'Montserrat, sans-serif',
-      fontWeight: 700,
+      fontSize: 32,
+      letterSpacing: 2,
+      fontFamily: 'Pecita, sans-serif',
+      fontWeight: 600,
+      fontStyle: 'italic',
     },
     h3: {
       fontSize: 28,
       letterSpacing: 2,
-      fontFamily: 'Pecita, sans-serif',
+      fontFamily: 'Salonikia, sans-serif',
       fontWeight: 400,
       fontStyle: 'italic'
     },
@@ -59,7 +60,7 @@ const theme = createTheme({
       fontStyle: 'italic'
     },
     body1: {
-      fontSize: 20,
+      fontSize: 18,
       letterSpacing: 1.5,
       fontFamily: 'Salonikia, sans-serif',
       fontWeight: 400
@@ -68,7 +69,7 @@ const theme = createTheme({
       fontSize: 20,
       letterSpacing: 1.5,
       fontFamily: 'Pecita, sans-serif',
-      fontWeight: 400
+      fontWeight: 600
     },
     caption: {
       fontSize: 16,
@@ -86,9 +87,8 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Switch>
-          <Route path="/">
-            <Menu />
-          </Route>
+          <Route exact path="/" component={MenuPage} />
+          <Route path="/party" component={PartyPage} />
         </Switch>
       </BrowserRouter>
 

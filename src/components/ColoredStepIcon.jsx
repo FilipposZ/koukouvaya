@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     borderRadius: "50%",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   active: {
     backgroundColor: theme.palette.tertiary.dark,
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ColoredStepIcon(props) {
-    const classes = useStyles();
+    const cls = useStyles();
     const { active } = props;
   
     const icons = {
@@ -41,8 +41,8 @@ export default function ColoredStepIcon(props) {
   
     return (
       <div
-        className={clsx(classes.root, {
-          [classes.active]: active,
+        className={clsx(cls.root, {
+          [cls.active]: active,
         })}
       >
         {icons[String(props.icon)]}

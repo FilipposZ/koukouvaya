@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/styles";
-import { Stepper, Step, StepButton, StepLabel, StepConnector } from "@material-ui/core";
+import { Stepper, Step, StepButton, StepLabel, StepConnector, Typography } from "@material-ui/core";
 
 import ColoredStepIcon from './ColoredStepIcon';
 
@@ -8,8 +8,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     position: 'fixed',
     [theme.breakpoints.down('sm')]: {
-      top: '20%',
-      width: '20%'
+      bottom: '0',
+      width: '15%'
     },
     [theme.breakpoints.up('sm')]: {
       bottom: 'auto',
@@ -19,9 +19,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     backgroundColor: theme.palette.primary.main,
     zIndex: 1
-  },
-  navLink: {
-    textDecoration: 'none',
+  }, 
+  navLabel: {
+    fontWeight: 400,
+    marginTop: theme.spacing(1.5)
   }
 }));
 
@@ -46,8 +47,8 @@ export default function MenuNavbar(props) {
         return (
           <Step key={title} completed={false} style={{ width: '100%' }}>
             <StepButton style={{ justifyContent: mobileView ? 'center' : 'flex-start' }} onClick={() => scrollToElement(index)}>
-              <StepLabel StepIconComponent={ColoredStepIcon} style={{ fontWeight: 400 }}> 
-                { title } 
+              <StepLabel StepIconComponent={ColoredStepIcon} className={cls.navLabel}> 
+                <Typography variant='body2' style={{ lineHeight: 1, transform: mobileView ? 'translateY(-8px)' : 'none' }}>{ title } </Typography>
               </StepLabel>
             </StepButton>
           </Step>
