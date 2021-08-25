@@ -10,13 +10,13 @@ import menuItems from '../menu-items';
 const useStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.primary.light,
-    overflowY: 'hidden'
+    overflowX: 'hidden'
   },
   footer: {
     paddingTop: theme.spacing(10),
     padding: theme.spacing(5, 0, 2, 0),
     backgroundColor: theme.palette.primary.dark,
-    opacity: 0.4,
+    opacity: 0.4
   },
   '@global': {
     'a': {

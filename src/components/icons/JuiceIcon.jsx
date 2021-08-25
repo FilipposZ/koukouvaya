@@ -1,7 +1,7 @@
 
 export default function JuiceIcon() {
   return (
-    <svg height="512" viewBox="0 0 59 59" width="512" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 59 59" xmlns="http://www.w3.org/2000/svg">
       <g fillRule="nonzero" transform="translate(-1)" fill="none">
         <path d="M14 6l4 2 4 6-6 6-6-4-2-4 1-5z" fill="#e64c3c"/>
         <path d="M16 2l-2 4c-1 2-5 1-5 1s0-3 2-4l4-2a1 1 0 011 1zM8 12l-4 2a1 1 0 01-1-1l1-4c2-2 5-2 5-2s1 4-1 5z" fill="#4fba6f"/>

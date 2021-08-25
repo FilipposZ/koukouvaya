@@ -11,7 +11,7 @@ import SweetsSections from './SweetsSection';
 const useStyles = makeStyles(theme => ({
   container: {
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(4, 2, 4, 6),
+      padding: theme.spacing(4, 2.5, 4, 6),
       width: '75%',
       marginRight: '0%'
     },
