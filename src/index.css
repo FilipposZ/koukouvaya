@@ -5,9 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #dceefa;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: Pecita;
+  src: url("./fonts/Pecita.otf") format("opentype");
+}
+
+@font-face {
+  font-family: SomeTimeLater;
+  src: url("./fonts/SomeTimeLater.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Salonikia;
+  src: url("./fonts/SalonikiaVKF.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Yomogi;
+  src: url("./fonts/Yomogi.otf") format("opentype");
 }
