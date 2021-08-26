@@ -5,7 +5,7 @@ import { Box, Grid, Typography, useScrollTrigger } from '@material-ui/core';
 import { InView } from 'react-intersection-observer';
 
 import Navbar from './Navbar';
-import MenuNavbar from './MenuNavbar';
+import MenuNavbarHorizontal from './MenuNavbarHorizontal';
 import MenuSection from './MenuSection';
 import menuItems from '../menu-items';
 
@@ -73,7 +73,7 @@ export default function MenuPage() {
   return(
     <Box className={cls.root}>
       <Navbar />
-      <MenuNavbar sectionTitles={Object.keys(menuItems)} 
+      <MenuNavbarHorizontal sectionTitles={Object.keys(menuItems)} 
         sectionRefs={sectionRefs}
         focusedSectionIndex={focusedSectionIndex}
       />

@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
     },
     alignItems: 'flex-start',
     backgroundColor: theme.palette.primary.main,
-    zIndex: 1
+    zIndex: 1,
+    padding: theme.spacing(2)
   },
   navLink: {
     textDecoration: 'none',
@@ -48,7 +49,7 @@ export default function MenuNavbar(props) {
           <Step key={title} completed={false} style={{ width: '100%' }}>
             <StepButton onClick={() => scrollToElement(index)}>
               <StepLabel StepIconComponent={ColoredStepIcon}> 
-                { title } 
+                {/* { title }  */}
               </StepLabel>
             </StepButton>
           </Step>

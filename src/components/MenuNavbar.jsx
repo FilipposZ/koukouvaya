@@ -27,8 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   stepLabel: {
     letterSpacing: 1,
-    lineHeight: 1,
-    textAlign: 'center'
+    lineHeight: 1
   }
 }));
 
