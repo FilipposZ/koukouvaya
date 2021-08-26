@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Button, Drawer, IconButton, Link, Grid, Slide, Toolbar, useScrollTrigger } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import GrandmaOwlIcon from './icons/GrandmaOwlIcon';
+import KoukouvayaIcon from './icons/KoukouvayaIcon';
 
 const useStyles = makeStyles(theme => ({
   appbar: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(2)
     },
-    backgroundColor: theme.palette.primary,
+    backgroundColor: theme.palette.primary.main,
     alignItems: 'center'
   },
   toolbar: {
@@ -24,8 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   centered: {
     [theme.breakpoints.down('xs')]: {
-      transform: 'scale(0.6)',
-      left: '0%',
+      transform: 'scale(0.6) translateX(-100%)',
     },
     position: 'absolute',
     left: '50%',
@@ -84,16 +83,7 @@ function MenuLinks({ vertical }) {
 
 function CollapsedMenu(props) {
   const cls = useStyles();
-
   const [open, setOpen] = useState(false);
-
-  const handleClick = (event) => {
-    setOpen(true)
-  };
-
-  const handleClose = () => {
-    setOpen(false)
-  };
 
   return (
     <>
@@ -101,14 +91,14 @@ function CollapsedMenu(props) {
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"
-        onClick={handleClick}
+        onClick={() => setOpen(true)}
       >
         <MenuIcon />
       </IconButton>
       <Drawer PaperProps={{ className: cls.paperBackground }}
         anchor='right'
         open={open}
-        onClose={handleClose}
+        onClose={() => setOpen(false)}
       >
         <MenuLinks vertical />
       </Drawer>
@@ -132,7 +122,7 @@ export default function Navbar(props) {
         <Toolbar className={cls.toolbar}>
           <Box className={cls.centered}>
             <IconButton edge='start' className={cls.clickable} onClick={() => { history.push('/'); scrollTop() }} aria-label='menu'>
-              <GrandmaOwlIcon style={{ fontSize: '3em' }} />
+              <KoukouvayaIcon style={{ fontSize: '2.5em' }} />
             </IconButton>
             <Link variant='h1' className={cls.navLink} color='textSecondary' component={RouterLink} onClick={scrollTop} to='/'>
               ΚΟΥΚΟΥΒΑΓΙΑ

@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     [theme.breakpoints.down('sm')]: {
       bottom: '0',
-      width: '15%'
+      width: '30%',
+      padding: theme.spacing(0, 1)
     },
     [theme.breakpoints.up('sm')]: {
       bottom: 'auto',
@@ -17,12 +18,17 @@ const useStyles = makeStyles(theme => ({
       width: 'auto'
     },
     alignItems: 'flex-start',
-    backgroundColor: theme.palette.primary.main,
-    zIndex: 1
+    backgroundColor: theme.palette.primary.light,
+    zIndex: 1,
   }, 
   navLabel: {
+    marginTop: theme.spacing(1.1),
     fontWeight: 400,
-    marginTop: theme.spacing(1.5)
+  },
+  stepLabel: {
+    letterSpacing: 1,
+    lineHeight: 1,
+    textAlign: 'center'
   }
 }));
 
@@ -48,7 +54,9 @@ export default function MenuNavbar(props) {
           <Step key={title} completed={false} style={{ width: '100%' }}>
             <StepButton style={{ justifyContent: mobileView ? 'center' : 'flex-start' }} onClick={() => scrollToElement(index)}>
               <StepLabel StepIconComponent={ColoredStepIcon} className={cls.navLabel}> 
-                <Typography variant='body2' style={{ lineHeight: 1, transform: mobileView ? 'translateY(-8px)' : 'none' }}>{ title } </Typography>
+                <Typography variant='body2' className={cls.stepLabel} style={{ transform: mobileView ? 'translateY(-8px)' : 'none' }}>
+                  { title }
+                </Typography>
               </StepLabel>
             </StepButton>
           </Step>

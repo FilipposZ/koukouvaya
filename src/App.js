@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider, unstable_createMuiStrictModeTheme as createTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import MenuPage from './components/MenuPage';
 import PartyPage from './components/PartyPage';
@@ -7,10 +8,10 @@ import PartyPage from './components/PartyPage';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#7dbca9'
+      main: '#76639b'
     },
     secondary: {
-      main: '#e18437',
+      main: '#889b63',
     },
     tertiary: {
       dark: '#767d6e',
@@ -85,6 +86,7 @@ const theme = createTheme({
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MenuPage} />

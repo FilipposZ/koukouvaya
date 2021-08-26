@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #dceefa;
+  overflow-x: 'hidden';
 }
 
 @font-face {
@@ -14,16 +15,6 @@ body {
 }
 
 @font-face {
-  font-family: SomeTimeLater;
-  src: url("./fonts/SomeTimeLater.otf") format("opentype");
-}
-
-@font-face {
   font-family: Salonikia;
   src: url("./fonts/SalonikiaVKF.otf") format("opentype");
-}
-
-@font-face {
-  font-family: Yomogi;
-  src: url("./fonts/Yomogi.otf") format("opentype");
 }
