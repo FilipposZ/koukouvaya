@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     left: '50%',
     transform: 'translateX(-50%)',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
   clickable: {
     cursor: 'pointer'

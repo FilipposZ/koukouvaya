@@ -8,14 +8,14 @@ import PartyPage from './components/PartyPage';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#76639b'
+      main: '#bfadcb'
     },
     secondary: {
-      main: '#889b63',
+      main: '#adcbbf',
     },
     tertiary: {
-      dark: '#767d6e',
-      main: '#eefadc'
+      dark: '#cbb7ad',
+      main: '#b49789'
     },
     textSecondary: {
       main: '#505050'	
