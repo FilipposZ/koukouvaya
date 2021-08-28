@@ -80,7 +80,7 @@ export default function MenuPage() {
 
       { Object.entries(menuItems).map(([section, items], index) => {
         return(
-          <InView key={index} onChange={handleViewChange} trackVisibility delay={100}>
+          <InView key={index} onChange={handleViewChange}>
             {({ inView, ref }) => {
               return (<MenuSection index={index} refProp={node => addToRefs(node, ref)}
                 title={section} 

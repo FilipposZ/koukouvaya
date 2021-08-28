@@ -16,11 +16,13 @@ const useStyles = makeStyles(theme => ({
       padding: theme.spacing(2)
     },
     backgroundColor: theme.palette.primary.main,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: theme.spacing(6)
   },
   toolbar: {
     width: '100%',
     justifyContent: 'flex-end',
+    alignItems: 'flex-end'
   },
   centered: {
     [theme.breakpoints.down('xs')]: {
@@ -28,6 +30,7 @@ const useStyles = makeStyles(theme => ({
     },
     position: 'absolute',
     left: '50%',
+    top: '-20%',
     transform: 'translateX(-50%)',
     display: 'flex',
     alignItems: 'flex-end'
@@ -66,7 +69,7 @@ function MenuLinks({ vertical }) {
   const cls = useStyles();
   
   return (
-    <Grid container direction={vertical ? 'column' : 'row'} justifyContent='flex-end' style={{marginTop: vertical ? '5vh' : 'none'}}>
+    <Grid container direction={vertical ? 'column' : 'row'} justifyContent='flex-end' style={{marginTop: vertical ? '5vh' : 'none'}} >
       <Button>
         <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/'>
           Menu
@@ -75,7 +78,7 @@ function MenuLinks({ vertical }) {
       <Button>
         <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/party'>
           Party
-        </Link>   
+        </Link>
       </Button>
     </Grid>
   )
@@ -86,7 +89,7 @@ function CollapsedMenu(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <div {...props}>
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
@@ -102,7 +105,7 @@ function CollapsedMenu(props) {
       >
         <MenuLinks vertical />
       </Drawer>
-    </>
+    </div>
   );
 }
 

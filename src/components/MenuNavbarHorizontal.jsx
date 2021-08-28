@@ -49,7 +49,7 @@ export default function MenuNavbar(props) {
           <Step key={title} completed={false} style={{ width: '100%' }}>
             <StepButton onClick={() => scrollToElement(index)}>
               <StepLabel StepIconComponent={ColoredStepIcon}> 
-                {/* { title }  */}
+                { mobileView ? null : title } 
               </StepLabel>
             </StepButton>
           </Step>
