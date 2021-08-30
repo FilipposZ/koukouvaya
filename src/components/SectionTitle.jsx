@@ -8,7 +8,7 @@ import KoukouvayaIcon from './icons/KoukouvayaIcon';
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    fontSize: '2em',
+    fontSize: '2.5em',
   }
 }));
 
@@ -34,12 +34,12 @@ SectionTitle.propTypes = {
   /** The title of the section. */
   title: PropTypes.string,
 
-  /** The position of the icon. */
-  iconPos: PropTypes.oneOf(['start', 'end'])
+  /** Whether the icon should be animated. */
+  animation: PropTypes.bool
 };
 
 SectionTitle.defaultProps = {
-  iconPos: 'end'
+  animation: false
 }
 
 export default SectionTitle;

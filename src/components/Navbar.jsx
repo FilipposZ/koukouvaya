@@ -35,6 +35,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'flex-end'
   },
+  icon: {
+    fontSize: '2.5em'
+  },
   clickable: {
     cursor: 'pointer'
   },
@@ -125,7 +128,7 @@ export default function Navbar(props) {
         <Toolbar className={cls.toolbar}>
           <Box className={cls.centered}>
             <IconButton edge='start' className={cls.clickable} onClick={() => { history.push('/'); scrollTop() }} aria-label='menu'>
-              <KoukouvayaIcon style={{ fontSize: '2.5em' }} />
+              <KoukouvayaIcon className={cls.icon} />
             </IconButton>
             <Link variant='h1' className={cls.navLink} color='textSecondary' component={RouterLink} onClick={scrollTop} to='/'>
               ΚΟΥΚΟΥΒΑΓΙΑ

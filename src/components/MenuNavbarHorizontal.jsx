@@ -33,7 +33,7 @@ export default function MenuNavbar(props) {
   const { sectionTitles, sectionRefs, focusedSectionIndex } = props
 
   function scrollToElement(index) {
-    sectionRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    sectionRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   return (
