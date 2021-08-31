@@ -49,7 +49,7 @@ function useFlyAnimation() {
   const [playAnim, setPlayAnim] = useState(false);
 
   const leftWingFlyAnim = useSpring({
-    config: config.stiff,
+    config: {duration: 500, ...config.stiff},
     loop: {
       reset: true,
       reverse: true,
@@ -59,7 +59,7 @@ function useFlyAnimation() {
   });
 
   const rightWingFlyAnim = useSpring({
-    config: config.stiff,
+    config: {duration: 500, ...config.stiff},
     loop: {
       reset: true,
       reverse: true,
@@ -67,24 +67,20 @@ function useFlyAnimation() {
     },
     from: { transform: 'rotate(0deg)' }
   });
-
+  
   const bodyAnim = useSpring({
-    config: config.wobbly,
-    loop: {
-      reverse: true,
-      to: {transform: 'translate(10%, -10%)'},
-      from: {transform: 'translate(-10%, -10%)'},
-    },
-    to: { transform: 'translate(0%, -10%)' },
-    from: { transform: 'translate(0%, 0%)' }
+    config: {duration: 400, ...config.wobbly},
+    to: [
+      { transform: playAnim ? 'translate(0%, -20%) rotate(0deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(5%, -18%) rotate(7deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(0%, -20%) rotate(-7deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(-5%, -18%) rotate(-7deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(0%, -20%) rotate(0deg)' : 'translate(0%, 0%) rotate(0deg)' },
+    ],
+    from: { transform: 'translate(0%, 0%) rotate(0deg)' },
   });
 
-  const play = () => {
-    setPlayAnim(true);
-    setTimeout(() => setPlayAnim(false), 2000);
-  };
-
-  return [rightWingFlyAnim, leftWingFlyAnim, bodyAnim, play];
+  return [rightWingFlyAnim, leftWingFlyAnim, bodyAnim, setPlayAnim];
 }
 
 var eyePositions = [
@@ -93,7 +89,9 @@ var eyePositions = [
   'translate(3%, -3%)',
   'translate(3%, 2%)',
   'translate(-3%, 3%)'
-]
+];
+
+const AnimatedSvgIcon = animated(SvgIcon);
 
 export default function KoukouvayaIcon({ animation, ...otherProps }) {
   const [ref, inView] = useInView();
@@ -125,11 +123,17 @@ export default function KoukouvayaIcon({ animation, ...otherProps }) {
   }, [getNextEyePos]);
 
   const playRandomAnimation = () => {
-    if (Math.random() > 0.5) {
-      blinkEyes();
-    } else {
-      fly();
-    }
+    let animFn;
+    const randomNum = Math.random();
+    if (randomNum > 0.66) {
+      animFn = blinkEyes;
+    } else if (randomNum > 0.33) {
+      animFn = fly;
+    } else { return; }
+    animFn(true)
+    setTimeout(() => {
+      animFn(false);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -140,7 +144,10 @@ export default function KoukouvayaIcon({ animation, ...otherProps }) {
   }, [inView]);
 
   return (
-    <SvgIcon ref={ref} viewBox="0 0 101.3 156.6" onMouseEnter={playRandomAnimation} {...otherProps} style={{ overflow: 'visible', ...bodyStyles }}>
+    <AnimatedSvgIcon viewBox="0 0 101.3 156.6" ref={ref} onMouseEnter={playRandomAnimation} 
+      {...otherProps} 
+      style={{ overflow: 'visible', transformOrigin: 'center bottom', ...(animation ? bodyStyles : null)}} 
+    >
       <svg width="383" height="592" style={{overflow: 'visible' }}>
         <g transform="translate(-46 -61)">
           <g transform="matrix(.26458 0 0 .26458 48 61)">
@@ -159,6 +166,6 @@ export default function KoukouvayaIcon({ animation, ...otherProps }) {
           </g>
         </g>
       </svg>
-    </SvgIcon>
+    </AnimatedSvgIcon>
   );
 }
