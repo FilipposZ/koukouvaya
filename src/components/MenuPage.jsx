@@ -9,7 +9,7 @@ import MenuNavbarHorizontal from './MenuNavbarHorizontal';
 import MenuSection from './MenuSection';
 import menuItems from '../menu-items';
 
-import { getYOffsetBreakpoints } from '../lib/utils';
+import { getYOffsetBreakpoints } from '../lib/utils.js';
 
 const useStyles = makeStyles(theme => ({
   root: {

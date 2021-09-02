@@ -1,4 +1,4 @@
-function getYOffsetBreakpoints(elements) {
+export const getYOffsetBreakpoints = (elements) => {
 
   const windowHeight = window.innerHeight || document.documentElement.clientHeight;
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -18,7 +18,7 @@ function getYOffsetBreakpoints(elements) {
  * @param {string} color The color in the string format `rgb(int, int, int)`
  * @returns The color's hex string represantation
  */
-function rgbStringToHex(color) {
+export const rgbStringToHex = (color) => {
   const rgbToHex = (r, g, b) => {
     const componentToHex = (c) => {
       var hex = c.toString(16);
@@ -37,9 +37,4 @@ function rgbStringToHex(color) {
   }
 
   return color;
-}
-
-module.exports = {
-  getYOffsetBreakpoints: getYOffsetBreakpoints,
-  rgbStringToHex: rgbStringToHex
 }
