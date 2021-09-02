@@ -1,31 +1,11 @@
 import Rainbow from 'rainbowvis.js';
 
+import { rgbStringToHex } from '../../lib/utils';
 
 export default function WaveSeparatorSvg({ startColor, endColor, opacity, ...otherProps }) {
-
-  function formatColor(color) {
-    const rgbToHex = (r, g, b) => {
-      const componentToHex = (c) => {
-        var hex = c.toString(16);
-        return hex.length === 1 ? "0" + hex : hex;
-      }
-
-      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-    }
-
-    if (color.includes('rgb')) {
-      const regEx = /\(([^)]+)\)/;
-      const matches = regEx.exec(color);
-
-      const [r, g, b] = matches[1].split(',')
-      color = rgbToHex(Number(r), Number(g), Number(b))
-    }
-
-    return color;
-  }
   
-  startColor = formatColor(startColor);
-  endColor = formatColor(endColor);
+  startColor = rgbStringToHex(startColor);
+  endColor = rgbStringToHex(endColor);
 
   let colorGradient = new Rainbow();
   colorGradient.setNumberRange(0, 3);

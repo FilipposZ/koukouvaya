@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paperBackground: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.light,
     width: '20%'
   }
 }));

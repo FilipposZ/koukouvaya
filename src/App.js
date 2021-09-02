@@ -15,6 +15,7 @@ const theme = createTheme({
     },
     tertiary: {
       main: '#dbd1e2',
+      light: '#e2dae7'
     },
     textSecondary: {
       main: '#505050'	

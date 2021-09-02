@@ -36,10 +36,9 @@ function useCloseEyesAnimation() {
     </animated.g>
   );
 
-  const play = () => {
+  const play = (shouldPlay) => {
     nLoops.current = 0;
-    setPlayAnim(true);
-    setTimeout(() => setPlayAnim(false), 4000);
+    setPlayAnim(shouldPlay);
   };
 
   return [extraPaths, play];
@@ -72,9 +71,9 @@ function useFlyAnimation() {
     config: {duration: 400, ...config.wobbly},
     to: [
       { transform: playAnim ? 'translate(0%, -20%) rotate(0deg)' : 'translate(0%, 0%) rotate(0deg)' },
-      { transform: playAnim ? 'translate(5%, -18%) rotate(7deg)' : 'translate(0%, 0%) rotate(0deg)' },
-      { transform: playAnim ? 'translate(0%, -20%) rotate(-7deg)' : 'translate(0%, 0%) rotate(0deg)' },
-      { transform: playAnim ? 'translate(-5%, -18%) rotate(-7deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(5%, -18%) rotate(5deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(0%, -20%) rotate(-5deg)' : 'translate(0%, 0%) rotate(0deg)' },
+      { transform: playAnim ? 'translate(-5%, -18%) rotate(-5deg)' : 'translate(0%, 0%) rotate(0deg)' },
       { transform: playAnim ? 'translate(0%, -20%) rotate(0deg)' : 'translate(0%, 0%) rotate(0deg)' },
     ],
     from: { transform: 'translate(0%, 0%) rotate(0deg)' },
@@ -120,7 +119,13 @@ export default function KoukouvayaIcon({ animation, ...otherProps }) {
 
   useEffect(() => {
     getNextEyePos();
-  }, [getNextEyePos]);
+    return () => {
+      rollEyes.stop();
+      blinkEyes(false);
+      fly(false);
+    }
+  // eslint-disable-next-line
+  }, []);
 
   const playRandomAnimation = () => {
     let animFn;
@@ -144,7 +149,8 @@ export default function KoukouvayaIcon({ animation, ...otherProps }) {
   }, [inView]);
 
   return (
-    <AnimatedSvgIcon viewBox="0 0 101.3 156.6" ref={ref} onMouseEnter={playRandomAnimation} 
+    <AnimatedSvgIcon viewBox="0 0 101.3 156.6" ref={ref}
+      onMouseEnter={playRandomAnimation} 
       {...otherProps} 
       style={{ overflow: 'visible', transformOrigin: 'center bottom', ...(animation ? bodyStyles : null)}} 
     >
