@@ -6,6 +6,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { useTrail, useSpring, useChain, config, animated, useSpringRef } from '@react-spring/web';
 
 import Navbar from './Navbar';
+import Footer from './Footer';
 import PinataIcon from './icons/PinataIcon';
 
 // Load all the videos from the folder
@@ -38,6 +39,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: '10rem',
     cursor: 'pointer',
     marginBottom: '10%'
+  },
+  pdfImage: {
+    [theme.breakpoints.up('md')]: {
+      width: '80%'
+    }
   }
 }));
 
@@ -72,7 +78,7 @@ export default function PartyPage(props) {
     config: config.stiff,
     from: { background: theme.palette.primary.light },
     to: { 
-      background: openVideos ? theme.palette.secondary.light : theme.palette.primary.light
+      background: openVideos ? theme.palette.primary.main : theme.palette.primary.light
     }
   });
 
@@ -116,10 +122,11 @@ export default function PartyPage(props) {
             </AnimatedImageList>
           </AnimatedGrid>
 
-          <CardMedia component='img' image='images/happybirthday-menu.png' /> 
-          <CardMedia component='img' image='images/happybirthday-info.png' /> 
+          <CardMedia className={cls.pdfImage} component='img' image='images/happybirthday-menu.png' /> 
+          <CardMedia className={cls.pdfImage} component='img' image='images/happybirthday-info.png' /> 
         </Grid>
       </Container>
+      <Footer />
     </Box>
   );
 }

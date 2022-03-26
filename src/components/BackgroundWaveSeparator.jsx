@@ -29,7 +29,6 @@ export default function BackgroundWaveSeparator({ children, index, ...otherProps
   //   '#D5A5C5',
   //   theme.palette.primary.main
   // ]
-
   
   // const curColor = backgroundColors[index % backgroundColors.length];
   // const nextColor = backgroundColors[(index + 1) % backgroundColors.length];

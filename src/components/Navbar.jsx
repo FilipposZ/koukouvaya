@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   paperBackground: {
     backgroundColor: theme.palette.primary.light,
-    width: '20%'
+    width: '33%'
   }
 }));
 
@@ -72,17 +72,26 @@ function MenuLinks({ vertical }) {
   const cls = useStyles();
   
   return (
-    <Grid container direction={vertical ? 'column' : 'row'} justifyContent='flex-end' style={{marginTop: vertical ? '5vh' : 'none'}} >
-      <Button>
-        <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/'>
-          Menu
-        </Link>
-      </Button>
-      <Button>
-        <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/party'>
-          Party
-        </Link>
-      </Button>
+    <Grid container direction={vertical ? 'column' : 'row'} alignContent='center' justifyContent={vertical ? 'space-between' : 'flex-end'} style={{
+      ...(vertical && {
+        marginTop: '5vh',
+        height: '13vh'
+      })
+    }} >
+      <Grid item>
+        <Button>
+          <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/'>
+            Menu
+          </Link>
+        </Button>
+      </Grid>
+      <Grid item>
+        <Button>
+          <Link variant='subtitle2' className={cls.navLink} color='textSecondary' component={RouterLink} to='/party'>
+            Party
+          </Link>
+        </Button>
+      </Grid>
     </Grid>
   )
 }

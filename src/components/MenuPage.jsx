@@ -1,12 +1,13 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Box, Grid, Typography, useScrollTrigger } from '@material-ui/core';
+import { Box, useScrollTrigger } from '@material-ui/core';
 
 import { InView } from 'react-intersection-observer';
 
 import Navbar from './Navbar';
 import MenuNavbarHorizontal from './MenuNavbarHorizontal';
 import MenuSection from './MenuSection';
+import Footer from './Footer';
 import menuItems from '../menu-items';
 
 import { getYOffsetBreakpoints } from '../lib/utils.js';
@@ -15,12 +16,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.primary.light,
   },
-  footer: {
-    paddingTop: theme.spacing(10),
-    padding: theme.spacing(5, 0, 2, 0),
-    backgroundColor: theme.palette.primary.dark,
-    opacity: 0.4
-  },
   '@global': {
     'a': {
       textDecoration: 'none',
@@ -28,8 +23,6 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-
-const year = new Date().getFullYear(); // used for the copyright
 
 /**
  * The Menu page component
@@ -92,14 +85,7 @@ export default function MenuPage() {
           </InView>
         );
       }) }
-      <Grid className={cls.footer} container direction='column' alignItems='center'>
-        <Grid item>
-          <Typography>Koukouvaya {year} © All rights reserved</Typography>
-        </Grid>
-        <Grid item>
-          <Typography style={{ fontSize: 12 }}>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></Typography>
-        </Grid>
-      </Grid>
+      <Footer />
     </Box>
   );
 }

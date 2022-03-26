@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('sm')]: {
       bottom: 'auto',
-      top: '40%',
+      top: '30%',
       width: 'auto'
     },
     alignItems: 'flex-start',
